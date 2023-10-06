@@ -19,8 +19,14 @@ return (
                     {navLinks}
                 </ul>
             </div>
-            <img src="https://demo.ovatheme.com/dvents/wp-content/uploads/2017/06/logo-dark.png" alt="" />
+            <div className="flex gap-4"> 
+            <img className="h-10" src="https://i.ibb.co/DrsmXgz/d.png" alt="d" />
+            <div className="h-4">
+            <h3 className="font-bold">DVENTS</h3>
+            <p className="-mt-2 text-slate-400"><small>Events Planner</small></p>
+            </div>
         </div>
+            </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
                 {navLinks}
