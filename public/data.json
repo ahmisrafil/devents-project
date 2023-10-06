@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Event Planning and Coordination",
+      "image": "https://i.ibb.co/sKjkY6M/Event.png",
+      "price": "$2,500 - $10,000",
+      "description": "Comprehensive event planning, venue selection, logistics coordination, and project management for tech and gaming events."
+    },
+    {
+      "id": 2,
+      "name": "Live Streaming",
+      "image": "https://i.ibb.co/3TTdzP2/live.png",
+      "price": "$1,000 - $5,000",
+      "description": "Professional live streaming solutions to broadcast tech and gaming events to a wider virtual audience."
+    },
+    {
+      "id": 3,
+      "name": "eSports Tournaments",
+      "image": "https://i.ibb.co/PzzDVpn/esport.png",
+      "price": "$1,500 - $7,500",
+      "description": "Organize and manage eSports tournaments, including game selection, player registration, and match scheduling."
+    },
+    {
+      "id": 4,
+      "name": "Tech Workshops",
+      "image": "https://i.ibb.co/Kh8VbQG/tech1.png",
+      "price": "$800 - $3,500",
+      "description": "Hands-on tech workshops covering coding, software development, hardware, and emerging technologies."
+    },
+    {
+      "id": 5,
+      "name": "Vendor and Exhibitor Management",
+      "image": "https://i.ibb.co/bNKs28Z/Vendor.png",
+      "price": "$1,200 - $6,000",
+      "description": "Complete vendor and exhibitor management services for trade shows and expos, including booth assignments and logistics."
+    },
+    {
+      "id": 6,
+      "name": "Hackathon Events",
+      "image": "https://i.ibb.co/y4xsQzp/Hackathon.png",
+      "price": "$1,200 - $5,000",
+      "description": "Organize hackathons, competitive coding events, with themes, sponsors, registrations, and a productive atmosphere."
+    }
+  ]
