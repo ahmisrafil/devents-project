@@ -1,11 +1,18 @@
+import { useLoaderData } from "react-router-dom";
+import Banner from "../components/Banner/Banner";
+import AuthProvider from "../components/AuthProvider/AuthProvider";
+
+
+
 
 
 
 const Home = () => {
+    const cards = useLoaderData();
     return (
         <div>
-            <h3 className="text-4xl">Welcome to home</h3>
-            
+            <Banner></Banner>
+            {cards.map(card =><AuthProvider key={card.id} card={card}></AuthProvider>)}
         </div>
     );
 };
