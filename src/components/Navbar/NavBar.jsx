@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     const navLinks = <>
-        <li> <NavLink to='/'>Home</NavLink></li>
-        <li> <NavLink to='/login'>Login</NavLink></li>
-        <li> <NavLink to='/register'>Register</NavLink></li>
+        <li className="lg:text-white lg:text-xl lg:font-sans  lg:mx-2"> <NavLink to='/'>Home</NavLink></li>
+        <li className="lg:text-white lg:text-xl lg:font-sans  lg:mx-2"> <NavLink to='/login'>Login</NavLink></li>
+        <li className="lg:text-white lg:text-xl lg:font-sans lg:mx-2"> <NavLink to='/register'>Register</NavLink></li>
         
     </>
 return (
-    <div className="navbar bg-base-200  px-10">
+    <div className="navbar bg-[#995252]  px-10">
         <div className="navbar-start">
             <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,11 +23,11 @@ return (
             <img className="h-10" src="https://i.ibb.co/DrsmXgz/d.png" alt="d" />
             <div className="h-4">
             <h3 className="font-bold">DVENTS</h3>
-            <p className="-mt-2 text-slate-400"><small>Events Planner</small></p>
+            <p className="-mt-2 text-slate-400 text-xs md:text-base"><small>Events Planner</small></p>
             </div>
         </div>
             </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
             <ul className="menu menu-horizontal px-1">
                 {navLinks}
             </ul>

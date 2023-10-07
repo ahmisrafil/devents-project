@@ -3,6 +3,7 @@ import NavBar from "../Navbar/NavBar";
 
 
 const Root = () => {
+    
     return (
         <div>
             <NavBar></NavBar>
