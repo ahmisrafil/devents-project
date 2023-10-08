@@ -27,7 +27,6 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 e.target.reset();
-                setSuccess("Registration Successful!!!")
                 toast.success('Registration Successful!!!', {
                     position: "top-center",
                     autoClose: 5000,
@@ -56,6 +55,16 @@ const Register = () => {
         googleSignIn()
             .then(result => {
                 console.log(result);
+                toast.success('Registration Successful!!!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
             })
             .catch(error => {
                 setError(error.message);
