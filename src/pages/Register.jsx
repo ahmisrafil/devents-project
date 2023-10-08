@@ -1,17 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
-    console.log(createUser);
+    const { createUser, googleSignIn } = useContext(AuthContext);
+
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+
+
+
     const handleRegister = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
+        setError("");
+        setSuccess("");
 
         // create user
 
@@ -19,14 +27,45 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 e.target.reset();
+                setSuccess("Registration Successful!!!")
+                toast.success('Registration Successful!!!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                
             })
             .catch(error => {
-                console.error(error);
+                setError(error.message);
             })
+       
     }
 
 
 
+
+
+
+    const handleGoogleSignIn = () => {
+        
+        googleSignIn()
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+// demo 
+const clicked= () => {
+ toast('wow fuck off')
+}
 
     return (
         <div>
@@ -49,16 +88,20 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
+                            <div>
+                                {
+                                    <h3 className="text-red-700">{error}</h3>
+                                }
+                            </div>
+                            
                         </form>
                         <p className="text-center mb-2">or</p>
-                        <div className="mb-8 btn mx-8 rounded-3xl">
+                        <div onClick={handleGoogleSignIn} className="mb-8 btn mx-8 rounded-3xl">
 
                             <div className="flex flex-row gap-4 items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
@@ -74,7 +117,9 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
+        
     );
 };
 

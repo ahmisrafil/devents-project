@@ -1,5 +1,5 @@
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { createContext } from "react";
 import PropTypes from 'prop-types';
 import auth from "../Firebase/firebase.config";
@@ -14,9 +14,18 @@ const AuthProvider = ({ children }) => {
 
         return createUserWithEmailAndPassword(auth, email, password)
     }
+     
 
 
-    const authInfo = { createUser };
+    const googleProvider = new GoogleAuthProvider();
+    const googleSignIn = ()=>{
+        return signInWithPopup(auth, googleProvider);
+    }
+
+    const authInfo = { 
+        createUser,
+        googleSignIn 
+    };
 
 
     return (
