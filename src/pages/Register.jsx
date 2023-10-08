@@ -2,9 +2,17 @@ import { NavLink } from "react-router-dom";
 
 
 const Register = () => {
-    const handleRegister= () =>{
+    const handleRegister= (e) =>{
+        e.preventDefault();
+        const email = e.target.value;
+        const password = e.target.value;
+        console.log(email, password);
 
     }
+
+
+
+    
     return (
         <div>
             <div className="hero min-h-screen bg-[#ca571469]">
