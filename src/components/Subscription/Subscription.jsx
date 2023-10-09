@@ -5,7 +5,7 @@ const Subscription = () => {
     return (
         
             <div className="flex flex-col items-center  justify-center lg:flex-row my-20">
-                <div data-aos="flip-left"
+                <div className="mx-0" data-aos="flip-left"
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000">
                 <div className=" flex flex-col items-center shadow-lg w-[250px]">
@@ -31,7 +31,7 @@ const Subscription = () => {
 
                 {/* second card */}
 
-                <div data-aos="flip-left"
+                <div className="mx-0" data-aos="flip-left"
      data-aos-easing="ease-in-cubic"
      data-aos-duration="2000">
                 <div className="my-8 mx-8 flex flex-col items-center shadow-lg w-[250px] lg:w-[300px]">
@@ -56,9 +56,9 @@ const Subscription = () => {
 
                 </div>
                 {/* third card */}
-                <div data-aos="fade-left"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
+                <div className="mx-0" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
                 <div className="my-8 flex flex-col items-center shadow-lg w-[250px]">
                     <div className="bg-[rgb(77,145,234)]  h-[80px] w-[250px] rounded-t-lg">
                     </div>

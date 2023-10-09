@@ -71,7 +71,7 @@ console.log(food);
 
 #### Answer: A: ['🍕', '🍫', '🥑', '🍔']
 
-<i>Here the 'info' object's 'favoriteFood' property is modified, but the food array is not modified. So the food array remains same.</i>
+<i>Here the 'info' object's 'favoriteFood' property is modified, but the food array is not modified.Changing the 'info.favoriteFood' property does not affect the 'food' array, So the food array remains same.</i>
 
 </p>
 </details>
