@@ -1,6 +1,6 @@
 # Tech Event Management Website
 
-Here is the website live link: [https://classroom.github.com/a/ehOGNGkI](https://classroom.github.com/a/ehOGNGkI)
+Here is the website live link: [https://tech-event-management-22ab1.web.app](https://tech-event-management-22ab1.web.app)
 
 
 ## Features of my website
