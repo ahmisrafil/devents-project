@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,10 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
 
     const { createUser, googleSignIn } = useContext(AuthContext);
-
-    const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
-
+    const passRef = useRef(null);
 
 
     const handleRegister = (e) => {
@@ -19,11 +17,11 @@ const Register = () => {
         const password = e.target.password.value;
 
         setError("");
-        setSuccess("");
+
 
         // create user
-
-        createUser(email, password)
+        if(/^(?=.*[A-Z])(?=.*[@#$%^&+=!])(.{6,})$/.test(password)){
+            createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 e.target.reset();
@@ -36,13 +34,25 @@ const Register = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "light",
-                    });
-                
+                });
+
             })
             .catch(error => {
                 setError(error.message);
             })
-       
+        }
+        else if(!/^(.{6,})$/.test(password)){
+            setError('Password must be at least 6 characters');
+        }
+        else if (!/^(?=.*[A-Z]).+$/.test(password)){
+            setError('Password must have a capital latter')
+        }
+        else if(!/^(?=.*[@#$%^&+=!])$/.test(password)){
+            setError('Password must have a special character');
+        }
+        
+        
+
     }
 
 
@@ -51,7 +61,7 @@ const Register = () => {
 
 
     const handleGoogleSignIn = () => {
-        
+
         googleSignIn()
             .then(result => {
                 console.log(result);
@@ -64,23 +74,20 @@ const Register = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "light",
-                    });
+                });
             })
             .catch(error => {
                 setError(error.message);
             })
     }
 
-// demo 
-const clicked= () => {
- toast('wow fuck off')
-}
+
 
     return (
         <div>
             <div className="hero min-h-screen bg-[#ca571469]">
                 <div className="hero-content flex-col lg:flex-row-reverse lg:gap-0">
-                    <div className="text-center lg:text-left lg:bg-[url('https://i.ibb.co/q16dWvh/back.png')] lg:h-[390px] lg: lg:rounded-r-lg lg:p-10 lg:text-white lg:w-1/2">
+                    <div className="text-center lg:text-left lg:bg-[url('https://i.ibb.co/q16dWvh/back.png')] lg:h-[490px] lg: lg:rounded-r-lg lg:p-10 lg:text-white lg:w-1/2">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
@@ -96,18 +103,21 @@ const clicked= () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <input 
+                                type="password" name="password"
+                                ref={passRef}
+                                 placeholder="password" className="input input-bordered" required />
 
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
-                            <div>
+                            <div className="h-[10px]">
                                 {
                                     <h3 className="text-red-700">{error}</h3>
                                 }
                             </div>
-                            
+
                         </form>
                         <p className="text-center mb-2">or</p>
                         <div onClick={handleGoogleSignIn} className="mb-8 btn mx-8 rounded-3xl">
@@ -126,9 +136,9 @@ const clicked= () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
-        
+
     );
 };
 
