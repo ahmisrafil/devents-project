@@ -1,7 +1,11 @@
+import AosConfig from "../AOS/Aos.config";
 
 const Team = () => {
-    return (
-        <div className="my-10" style={{ backgroundImage: 'url(https://i.ibb.co/S5qcc8x/Untitled-design.png)' }}>
+  return (
+    <div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
+    <div className="my-10" style={{ backgroundImage: 'url(https://i.ibb.co/S5qcc8x/Untitled-design.png)' }}>
       <div className="hero-overlay bg-opacity-90 pb-20">
         <div className="hero-content text-center text-neutral-content">
           {/* headings and texts */}
@@ -13,46 +17,61 @@ const Team = () => {
         {/* team members section */}
         <div className="flex justify-center flex-col lg:flex-row gap-20 mr-0 mx-5">
           {/* first member */}
+          <div data-aos="fade-down-right">
           <div className="text-center">
             <img className="mx-auto" src="https://i.ibb.co/mcKW0T2/member2.png" alt="" />
             <div className="text-white my-3">
               <h3 className="font-bold">A. Safia Chowdhury</h3>
               <p>Owner/ Lead Planner</p>
             </div>
-           
+
           </div>
+          </div>
+
+
           {/* second member */}
+          <div data-aos="flip-down">
           <div className="text-center">
             <img className="mx-auto" src="https://i.ibb.co/fpfFs3F/member3.png" alt="" />
             <div className="text-white my-3">
               <h3 className="font-bold">Mark Leighton</h3>
               <p>Event Coordinator</p>
             </div>
-           
-              
           </div>
+          </div>
+
+
           {/* Third member */}
+          <div data-aos="flip-down">
           <div className="text-center">
             <img className="mx-auto" src="https://i.ibb.co/kD6x23b/member4.png" alt="" />
             <div className="text-white my-3">
               <h3 className="font-bold">Maria Scalice</h3>
               <p>Corporate Event Planner</p>
             </div>
-            
+
+          </div>
           </div>
           {/* fourth member */}
-          <div className="text-center">
-            <img className="mx-auto" src="https://i.ibb.co/X5HcN8G/member1.png" alt="" />
-            <div className="text-white my-3">
-              <h3 className="font-bold">Henry Rodriguez</h3>
-              <p>Sr. Event Planner</p>
+          <div data-aos="fade-down-left">
+            <div className="text-center">
+              <img className="mx-auto" src="https://i.ibb.co/X5HcN8G/member1.png" alt="" />
+              <div className="text-white my-3">
+                <h3 className="font-bold">Henry Rodriguez</h3>
+                <p>Sr. Event Planner</p>
+              </div>
+
             </div>
-            
           </div>
         </div>
+
+
       </div>
     </div>
-    );
+    </div>
+  );
 };
 
+
+AosConfig();
 export default Team;
